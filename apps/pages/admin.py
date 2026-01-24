@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, About
+from .models import Home, About, Portfolio
 
 @admin.register(Home)
 class HomeAdmin(admin.ModelAdmin):
@@ -7,4 +7,8 @@ class HomeAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+
+@admin.register(Portfolio)
+class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('title',)

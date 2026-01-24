@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.pages',
     'apps.projects',
     'apps.common',
+    'apps.contact',
 ]
 
 MIDDLEWARE = [
