@@ -7,3 +7,10 @@ class Home(models.Model):
 
     class Meta:
         verbose_name_plural = 'Home'
+
+class About(models.Model):
+    title = models.CharField(max_length=30)
+    content = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'About'
