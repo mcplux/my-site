@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+
+
+{% block content %}
+<main class="bg-teal-600">
+  <div
+    class="flex flex-col items-center justify-center gap-5 w-full min-h-screen"
+  >
+    <h1 class="text-white text-4xl font-bold text-center">{{ name }}</h1>
+    <img src="{{ image.url }}" alt="{{ name }}" class="size-62 rounded-full" />
+    <p class="text-white text-lg font-semibold text-center">{{ occupation }}</p>
+  </div>
+</main>
+{% endblock content %}

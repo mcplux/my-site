@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class SocialLink(models.Model):
     name = models.CharField(max_length=30)
     url = models.URLField()
@@ -9,13 +10,14 @@ class SocialLink(models.Model):
         return self.name
 
     class Meta:
-        ordering = ('order',)
+        ordering = ("order",)
+
 
 class Skill(models.Model):
     TYPE_CHOICES = (
-        ('lang', 'Language'),
-        ('front', 'Frontend'),
-        ('back', 'Backend'),
+        ("lang", "Language"),
+        ("front", "Frontend"),
+        ("back", "Backend"),
     )
     name = models.CharField(max_length=30)
     slug = models.CharField(max_length=30)
@@ -24,6 +26,6 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
-        ordering = ('order',)
+        ordering = ("order",)

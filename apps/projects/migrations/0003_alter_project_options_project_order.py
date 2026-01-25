@@ -4,19 +4,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('projects', '0002_project_skills'),
+        ("projects", "0002_project_skills"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='project',
-            options={'ordering': ('order',)},
+            name="project",
+            options={"ordering": ("order",)},
         ),
         migrations.AddField(
-            model_name='project',
-            name='order',
+            model_name="project",
+            name="order",
             field=models.PositiveIntegerField(default=0),
         ),
     ]

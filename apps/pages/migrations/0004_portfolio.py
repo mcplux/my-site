@@ -4,23 +4,30 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('pages', '0003_home_social_links'),
-        ('projects', '0002_project_skills'),
+        ("pages", "0003_home_social_links"),
+        ("projects", "0002_project_skills"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Portfolio',
+            name="Portfolio",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=30)),
-                ('content', models.TextField()),
-                ('projects', models.ManyToManyField(to='projects.project')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=30)),
+                ("content", models.TextField()),
+                ("projects", models.ManyToManyField(to="projects.project")),
             ],
             options={
-                'verbose_name_plural': 'Portfolio',
+                "verbose_name_plural": "Portfolio",
             },
         ),
     ]

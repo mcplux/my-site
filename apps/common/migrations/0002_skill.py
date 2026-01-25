@@ -4,20 +4,37 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('common', '0001_initial'),
+        ("common", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Skill',
+            name="Skill",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-                ('slug', models.CharField(max_length=30)),
-                ('type', models.CharField(choices=[('lang', 'Language'), ('front', 'Frontend'), ('back', 'Backend')], max_length=10)),
-                ('order', models.PositiveBigIntegerField(default=0)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=30)),
+                ("slug", models.CharField(max_length=30)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("lang", "Language"),
+                            ("front", "Frontend"),
+                            ("back", "Backend"),
+                        ],
+                        max_length=10,
+                    ),
+                ),
+                ("order", models.PositiveBigIntegerField(default=0)),
             ],
         ),
     ]

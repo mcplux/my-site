@@ -4,16 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('common', '0001_initial'),
-        ('pages', '0002_about'),
+        ("common", "0001_initial"),
+        ("pages", "0002_about"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='home',
-            name='social_links',
-            field=models.ManyToManyField(to='common.sociallink'),
+            model_name="home",
+            name="social_links",
+            field=models.ManyToManyField(to="common.sociallink"),
         ),
     ]

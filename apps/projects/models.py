@@ -1,6 +1,7 @@
 from django.db import models
 from apps.common.models import Skill
 
+
 class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
@@ -13,4 +14,4 @@ class Project(models.Model):
         return self.title
 
     class Meta:
-        ordering = ('order',)
+        ordering = ("order",)
