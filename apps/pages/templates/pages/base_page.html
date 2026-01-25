@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+{{ block.super }} | {{ title }}
+{% endblock title %}
+
+{% block content %}
+<div class="flex flex-col h-screen">
+  <header class="flex justify-end p-5 bg-teal-600 shadow-lg">
+    {% include 'pages/_navigation.html' %}
+  </header>
+
+  <main class="flex-1 overflow-auto mt-10 max-w-5xl mx-auto">
+    {% block main_content %} {% endblock main_content %}
+  </main>
+</div>
+{% endblock content %}
