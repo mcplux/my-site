@@ -27,7 +27,7 @@ class About(BasePage):
 
 
 class Portfolio(BasePage):
-    projects = models.ManyToManyField(Project)
+    projects = models.ManyToManyField(Project, blank=True)
 
     class Meta:
         verbose_name_plural = "Portfolio"

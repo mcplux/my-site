@@ -1,0 +1,29 @@
+{% extends 'pages/base_page.html' %}
+
+{% block main_content %}
+<h1 class="text-4xl text-center font-bold">{{ title }}</h1>
+
+<ul class="grid grid-cols-1 gap-3 mt-10 px-5 md:grid-cols-2">
+  {% for project in projects %}
+  <li class="flex flex-col gap-3 border border-teal-600 rounded p-5">
+    <h2 class="text-xl text-teal-900 font-bold">{{ project.title }}</h2>
+    <div>
+      {% for skill in project.skills.all %}
+      <p class="text-xs text-semibold px-1 py-0.5 rounded inline-flex {{ skill.slug }}">{{ skill.name }}</p>
+      {% endfor %}
+      <p class="text-xs text-semibold px-1 py-0.5 rounded inline-flex postgres">Skill</p>
+    </div>
+    <div class="flex gap-3">
+      <a href="{{ project.repo }}" class="flex items-center gap-1 text-teal-900 hover:underline">
+        <i data-lucide="code-xml" class="size-5"></i>
+        Code
+      </a>
+      <a href="{{ project.demo }}" class="flex items-center gap-1 text-teal-900 hover:underline">
+        <i data-lucide="globe" class="size-5"></i>
+        Demo
+      </a>
+    </div>
+  </li>  
+  {% endfor %}
+</ul>
+{% endblock main_content %}

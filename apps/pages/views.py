@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import Home, About
+from .models import Home, About, Portfolio
 
 
 def home(request):
@@ -30,3 +30,16 @@ def about(request):
     }
 
     return render(request, "pages/about.html", context)
+
+
+def portfolio(request):
+    portfolio_page = Portfolio.objects.first()
+    if portfolio_page is None:
+        raise Http404("The requested resource was not found")
+
+    context = {
+        "title": portfolio_page.title,
+        "projects": portfolio_page.projects.all(),
+    }
+
+    return render(request, "pages/portfolio.html", context)
