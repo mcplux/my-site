@@ -5,6 +5,7 @@ class SocialLink(models.Model):
     name = models.CharField(max_length=30)
     url = models.URLField()
     order = models.PositiveIntegerField(default=0)
+    icon = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name

@@ -9,6 +9,13 @@
     <h1 class="text-white text-4xl font-bold text-center">{{ name }}</h1>
     <img src="{{ image.url }}" alt="{{ name }}" class="size-62 rounded-full" />
     <p class="text-white text-lg font-semibold text-center">{{ occupation }}</p>
+    <div class="flex gap-2">
+      {% for link in social_links %}
+      <a href="{{ link.url }}" target="_blank">
+        <i data-lucide="{{ link.icon }}" class="text-white size-7"></i>
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </main>
 {% endblock content %}
