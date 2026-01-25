@@ -11,7 +11,6 @@
       {% for skill in project.skills.all %}
       <p class="text-xs text-semibold px-1 py-0.5 rounded inline-flex {{ skill.slug }}">{{ skill.name }}</p>
       {% endfor %}
-      <p class="text-xs text-semibold px-1 py-0.5 rounded inline-flex postgres">Skill</p>
     </div>
     <div class="flex gap-3">
       <a href="{{ project.repo }}" class="flex items-center gap-1 text-teal-900 hover:underline">

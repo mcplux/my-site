@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import Home, About, Portfolio
+from .models import Home, About, Portfolio, Contact
+from .forms import ContactForm
 
 
 def home(request):
@@ -43,3 +44,17 @@ def portfolio(request):
     }
 
     return render(request, "pages/portfolio.html", context)
+
+
+def contact(request):
+    contact_page = Contact.objects.first()
+    if contact_page is None:
+        raise Http404("The requested resource was not found")
+
+    form = ContactForm()
+    context = {
+        "title": contact_page.title,
+        "form": form,
+    }
+
+    return render(request, "pages/contact.html", context)

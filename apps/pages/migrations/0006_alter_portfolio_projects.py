@@ -4,16 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('pages', '0005_contact'),
-        ('projects', '0003_alter_project_options_project_order'),
+        ("pages", "0005_contact"),
+        ("projects", "0003_alter_project_options_project_order"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='portfolio',
-            name='projects',
-            field=models.ManyToManyField(blank=True, to='projects.project'),
+            model_name="portfolio",
+            name="projects",
+            field=models.ManyToManyField(blank=True, to="projects.project"),
         ),
     ]
