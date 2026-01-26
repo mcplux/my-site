@@ -6,7 +6,7 @@
 
 1. Clone repository
    ```bash
-   git clone https://github.com/mcplux/my-site
+   git clone https://github.com/mcplux/my-site.git
    cd my-site
    ```
 2. Install dependencies
@@ -19,27 +19,19 @@
    mv tailwindcss-linux-x64 tailwindcss
    chmod +x tailwindcss
    ```
-4. Activates the virtual environment to easily execute commands
-
-   ```bash
-   source .venv/bin/activate # linux
+4. Duplicate .env.example file
    ```
-
-   If you don't activate the virtual environment, you'll have to add `uv run` before each command.
-
+   cp .env.example .env
+   ```
 5. Run migrations
    ```bash
-   python manage.py migrate
+   uv run manage.py migrate
    ```
 6. Create a superuser to access the admin panel
    ```bash
-   python manage.py createsuperuser
+   uv run manage.py createsuperuser
    ```
-7. Start tailwind server
-   ```
-   ./tailwindcss -i static/css/input.css -o static/css/output.css --watch
-   ```
-8. Run development server
+7. Start Django and Tailwind in development
    ```bash
-   python manage.py runserver
+   uv run honcho start
    ```
