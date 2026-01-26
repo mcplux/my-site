@@ -9,20 +9,30 @@
     <h2 class="text-xl text-teal-900 font-bold">{{ project.title }}</h2>
     <div>
       {% for skill in project.skills.all %}
-      <p class="text-xs text-semibold px-1 py-0.5 rounded inline-flex {{ skill.slug }}">{{ skill.name }}</p>
+      <p
+        class="text-xs text-semibold px-1 py-0.5 rounded inline-flex {{ skill.slug }}"
+      >
+        {{ skill.name }}
+      </p>
       {% endfor %}
     </div>
     <div class="flex gap-3">
-      <a href="{{ project.repo }}" class="flex items-center gap-1 text-teal-900 hover:underline">
+      <a
+        href="{{ project.repo }}"
+        class="flex items-center gap-1 text-teal-900 hover:underline"
+      >
         <i data-lucide="code-xml" class="size-5"></i>
         Code
       </a>
-      <a href="{{ project.demo }}" class="flex items-center gap-1 text-teal-900 hover:underline">
+      <a
+        href="{{ project.demo }}"
+        class="flex items-center gap-1 text-teal-900 hover:underline"
+      >
         <i data-lucide="globe" class="size-5"></i>
         Demo
       </a>
     </div>
-  </li>  
+  </li>
   {% endfor %}
 </ul>
 {% endblock main_content %}

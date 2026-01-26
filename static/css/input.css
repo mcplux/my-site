@@ -13,6 +13,10 @@
     @apply bg-[#42B883] text-white;
   }
 
+  .pinia {
+    @apply bg-[#FFE14D];
+  }
+
   .alpine {
     @apply bg-[#8BC0D0] text-white;
   }
@@ -39,6 +43,10 @@
 
   .nest {
     @apply bg-[#E0234E] text-white;
+  }
+
+  .zod {
+    @apply bg-[#3068B7] text-white;
   }
 
   .mongo {
