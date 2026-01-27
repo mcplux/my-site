@@ -3,7 +3,7 @@
 {% block main_content %}
 <h1 class="text-4xl text-center font-bold">{{ title }}</h1>
 
-<ul class="grid grid-cols-1 gap-3 mt-10 px-5 md:grid-cols-2">
+<ul class="grid grid-cols-1 gap-3 mt-10 md:grid-cols-2">
   {% for project in projects %}
   <li class="flex flex-col gap-3 border border-teal-600 rounded p-5">
     <h2 class="text-xl text-teal-900 font-bold">{{ project.title }}</h2>
