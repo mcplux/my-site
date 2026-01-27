@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.db import DatabaseError
+from django.contrib import messages
+from django.views.decorators.http import require_http_methods
 from .models import Home, About, Portfolio, Contact
 from .forms import ContactForm
 from apps.contact.models import ContactMessage
 
 
+@require_http_methods(["GET"])
 def home(request):
     home_page = Home.objects.first()
     if home_page is None:
@@ -22,6 +25,7 @@ def home(request):
     return render(request, "pages/index.html", context)
 
 
+@require_http_methods(["GET"])
 def about(request):
     about_page = About.objects.first()
     if about_page is None:
@@ -35,6 +39,7 @@ def about(request):
     return render(request, "pages/about.html", context)
 
 
+@require_http_methods(["GET"])
 def portfolio(request):
     portfolio_page = Portfolio.objects.first()
     if portfolio_page is None:
@@ -48,28 +53,21 @@ def portfolio(request):
     return render(request, "pages/portfolio.html", context)
 
 
+@require_http_methods(["GET", "POST"])
 def contact(request):
     contact_page = Contact.objects.first()
     if contact_page is None:
         raise Http404("The requested resource was not found")
 
-    success_message = None
-
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             try:
-                ContactMessage.objects.create(
-                    name=form.cleaned_data["name"],
-                    email=form.cleaned_data["email"],
-                    message=form.cleaned_data["message"],
-                )
-                success_message = "Message sent successfully"
-                form = ContactForm()
-                redirect("contact")
+                ContactMessage.objects.create(**form.cleaned_data)
+                messages.success(request, "Message sent successfully")
+                return redirect("contact")
 
-            except DatabaseError as e:
-                print(e)
+            except DatabaseError:
                 form.add_error(None, "Something went wrong. Please try again later")
     else:
         form = ContactForm()
@@ -77,7 +75,6 @@ def contact(request):
     context = {
         "title": contact_page.title,
         "form": form,
-        "success_message": success_message,
     }
 
     return render(request, "pages/contact.html", context)

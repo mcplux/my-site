@@ -5,45 +5,48 @@
 {% block main_content %}
 <h1 class="text-4xl text-center font-bold">{{ title }}</h1>
 
-{% if success_message %}
-<p
-  class="text-center mt-10 border border-green-900 text-green-900 rounded p-2 bg-green-200 font-bold"
->
-  {{ success_message }}
-</p>
-{% endif %}
 
-{% if form.non_field_errors %}
-<div class="mt-10 flex flex-col gap-2">
-  {% for error in form.non_field_errors %}
-  <p
-    class="text-center border border-red-900 text-red-900 rounded p-2 bg-red-200 font-bold"
-  >
-    {{ error }}
-  </p>
-  {% endfor %}
-</div>
-{% endif %}
+<div>
+  {% if form.non_field_errors or messages %}
+  <div class="mt-10 flex flex-col gap-2">
+    {% for error in form.non_field_errors %}
+    <p
+      class="p-2 border rounded bg-red-200 text-center text-red-900 font-bold border-red-900"
+    >
+      {{ error }}
+    </p>
+    {% endfor %}
 
-
-<form action="{% url 'contact' %}" method="post">
-  {% csrf_token %} 
-
-  {% for field in form %}
-  <div class="flex flex-col gap-1 mt-5">
-    <label for="id_{{ field.name }}">{{ field.label }}:</label>
-    {{ field|add_class:"border rounded p-2" }} 
-    {% for error in field.errors %}
-    <p class="text-sm text-red-500">{{ error }}</p>
+    {% for message in messages %}
+    <p
+      class="p-2 border rounded bg-green-200 text-center text-green-900 font-bold border-green-900"
+    >
+      {{ message }}
+    </p>
     {% endfor %}
   </div>
-  {% endfor %}
+  {% endif %}
 
-  <button
-    type="submit"
-    class="w-full mt-5 p-2 text-lg font-bold text-white bg-teal-600 rounded cursor-pointer hover:bg-teal-700 transition-colors"
-  >
-    Send
-  </button>
-</form>
+
+  <form action="{% url 'contact' %}" method="post">
+    {% csrf_token %} 
+
+    {% for field in form %}
+    <div class="flex flex-col gap-1 mt-5">
+      <label for="id_{{ field.name }}">{{ field.label }}:</label>
+      {{ field|add_class:"border rounded p-2" }} 
+      {% for error in field.errors %}
+      <p class="text-sm text-red-500">{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <button
+      type="submit"
+      class="w-full mt-5 p-2 text-lg font-bold text-white bg-teal-600 rounded cursor-pointer hover:bg-teal-700 transition-colors"
+    >
+      Send
+    </button>
+  </form>
+</div>
 {% endblock main_content %}
