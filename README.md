@@ -23,15 +23,19 @@
    ```
    cp .env.example .env
    ```
-5. Run migrations
+5. Start development database using Docker
+   ```
+   docker compose up -d
+   ```
+6. Run migrations
    ```bash
    uv run manage.py migrate
    ```
-6. Create a superuser to access the admin panel
+7. Create a superuser to access the admin panel
    ```bash
    uv run manage.py createsuperuser
    ```
-7. Start Django and Tailwind in development
+8. Start Django and Tailwind in development
    ```bash
    uv run honcho start
    ```
