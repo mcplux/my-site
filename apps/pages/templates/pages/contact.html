@@ -33,7 +33,7 @@
 
     {% for field in form %}
     <div class="flex flex-col gap-1 mt-5">
-      <label for="id_{{ field.name }}">{{ field.label }}:</label>
+    <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
       {{ field|add_class:"border rounded p-2" }} 
       {% for error in field.errors %}
       <p class="text-sm text-red-500">{{ error }}</p>
