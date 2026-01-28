@@ -1,0 +1,14 @@
+.git
+.ruff_cache
+.venv
+.vscode
+media
+staticfiles
+.dockerignore
+.gitignore
+.python-version
+db.sqlite3
+docker*.yaml
+Procfile
+README.md
+tailwindcss

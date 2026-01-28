@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: postgres_mcplux
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/pg_data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: mcplux
+    restart: unless-stopped
+    command: ./entrypoint.sh
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:8000"
+    volumes:
+      - /var/www/mcplux.com/static:/app/staticfiles
+      - /var/www/mcplux.com/media:/app/media
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
