@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     SECRET_KEY: str = Field(..., min_length=20)
     ALLOWED_HOSTS: List[str] = ["localhost", "127.0.0.1"]
+    CSRF_TRUSTED_ORIGINS: List[str] = []
 
     # DB
     POSTGRES_HOST: str = "localhost"
