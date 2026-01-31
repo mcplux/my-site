@@ -10,7 +10,9 @@
     <div>
       {% for skill in project.skills.all %}
       <p
-        class="text-xs text-semibold px-1 py-0.5 rounded inline-flex {{ skill.slug }}"
+        class="skill text-xs text-semibold px-1 py-0.5 rounded inline-flex"
+        style="--bg-color: {{ skill.bg_color }}; --text-color: {{ skill.text_color }}"
+          
       >
         {{ skill.name }}
       </p>

@@ -1,60 +1,11 @@
 @import 'tailwindcss';
 
 @layer components {
-  .ts {
-    @apply bg-[#3178C6] text-white;
-  }
-
-  .python {
-    @apply bg-[#3776AB] text-white;
-  }
-
-  .vue {
-    @apply bg-[#42B883] text-white;
-  }
-
-  .pinia {
-    @apply bg-[#FFE14D];
-  }
-
-  .alpine {
-    @apply bg-[#8BC0D0] text-white;
-  }
-
-  .nuxt {
-    @apply bg-[#00DC82] text-white;
-  }
-
-  .htmx {
-    @apply bg-[#3366CC] text-white;
-  }
-
-  .tailwind {
-    @apply bg-[#06B6D4] text-white;
-  }
-
-  .express {
-    @apply bg-[#444444] text-white;
-  }
-
-  .django {
-    @apply bg-[#092E20] text-white;
-  }
-
-  .nest {
-    @apply bg-[#E0234E] text-white;
-  }
-
-  .zod {
-    @apply bg-[#3068B7] text-white;
-  }
-
-  .mongo {
-    @apply bg-[#47A248] text-white;
-  }
-
-  .postgres {
-    @apply bg-[#336791] text-white;
+  .skill {
+    --bg-color: #fff;
+    --text-color: #000;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 }
 

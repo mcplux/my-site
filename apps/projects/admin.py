@@ -4,4 +4,4 @@ from .models import Project
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title", "order", "demo", "repo")

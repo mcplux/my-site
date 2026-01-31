@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "widget_tweaks",
+    "colorfield",
     "apps.pages",
     "apps.projects",
     "apps.common",

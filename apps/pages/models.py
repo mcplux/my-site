@@ -6,12 +6,17 @@ from apps.projects.models import Project
 class BasePage(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
 
 
-class Home(models.Model):
+class Home(BasePage):
+    title = None
+    content = None
+
     name = models.CharField(max_length=30)
     occupation = models.CharField(max_length=30)
     image = models.ImageField(upload_to="home/")
