@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import SocialLink, Skill
 
 
@@ -9,4 +10,15 @@ class SocialLinkAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ("name", "order", "type", "bg_color", "text_color")
+    list_display = ("name", "order", "type", "preview")
+    readonly_fields = ("preview",)
+
+    def preview(self, obj):
+        return format_html(
+            '<div id="color-preview" style="padding:10px;background:{};color:{};">Preview</div>',
+            obj.bg_color,
+            obj.text_color,
+        )
+
+    class Media:
+        js = ("js/color-preview.js",)
